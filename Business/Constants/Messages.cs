@@ -29,5 +29,8 @@ namespace Business.Constants
         public static string BrandUpdated = "Renkler Güncellendi";
         public static string BrandListed = "Renk Listelendi";
 
+        public static string RentalNotAdded = "Kiralama Yapılamadı; Arabanın kiralanabilmesi için arabanın teslim edilmesi gerekmektedir (Teslim tarihi girilmelidir).";
+        public static string RentalAdded = "Kiralama Yapıldı";
+
     }
 }

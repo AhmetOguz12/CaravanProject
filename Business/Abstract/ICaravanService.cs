@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,11 @@ namespace Business.Abstract
         IResult Add(Caravan caravan);
         IResult Delete(Caravan caravan);
         IResult Update(Caravan caravan);
-        IDataResult<List<Caravan>> GetByBrandId(int brandId);
-        IDataResult<List<Caravan>> GetByColorId(int colorId);
+        IDataResult<List<CaravanDetailDto>> GetCaravanDetails();
+        IDataResult<List<CaravanDetailDto>> GetCaravanDetailsById(int id);
+        IDataResult<List<CaravanDetailDto>> GetByBrandId(int brandid);
+        IDataResult<List<CaravanDetailDto>> GetByColorId(int colorId);
+        IDataResult<List<CaravanDetailDto>> GetByColorIdWithBrandId(int colorId,int brandId);
 
     }
 }

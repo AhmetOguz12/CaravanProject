@@ -27,6 +27,17 @@ namespace API.Controllers
             return BadRequest();
         }
 
+        [HttpGet("getbyid")]
+        public ActionResult GetById(int brandId)
+        {
+            var result = _brandService.GetById(brandId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpPost("add")]
         public IActionResult Add(Brand brand)
         {

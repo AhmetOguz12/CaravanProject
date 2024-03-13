@@ -26,6 +26,29 @@ namespace API.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("caravandetaildto")]
+        public ActionResult GetCaravanDetailDto()
+        {
+            var result = _caravanService.GetCaravanDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("caravandetaildtobyid")]
+        public ActionResult GetCaravanDetailDtoById(int id)
+        {
+            var result = _caravanService.GetCaravanDetailsById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpGet("id")]
         public ActionResult Get(int id)
         {
@@ -46,6 +69,7 @@ namespace API.Controllers
             }
             return BadRequest(result);
         }
+
         [HttpGet("getbycolorid")]
         public ActionResult GetByColorId(int colorId)
         {
@@ -56,7 +80,16 @@ namespace API.Controllers
             }
             return BadRequest(result);
         }
-
+        [HttpGet("getbycoloridwithbrandid")]
+        public ActionResult GetByColorIdWithBrandId(int colorId, int brandId)
+        {
+            var result = _caravanService.GetByColorIdWithBrandId(colorId, brandId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpPost("add")]
         public IActionResult Add(Caravan caravan)
         {
