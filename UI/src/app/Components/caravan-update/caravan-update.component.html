@@ -1,0 +1,99 @@
+<div class="col-12">
+  <div class="card">
+    <form [formGroup]="caravanUpdateFrom">
+      <h5>Advanced</h5>
+      <div class="p-fluid p-formgrid grid">
+        <div class="field col-12 md:col-12">
+          <label for="id" class="p-d-block">İd</label>
+          <input
+            pInputText
+            type="number"
+            formControlName="id"
+            id="id"
+            class="p-input"
+          />
+        </div>
+        <div
+          class="field col-12 md:col-6"
+          style="display: flex; justify-content: space-between"
+        >
+          <div class="col-12">
+            <label for="brand" class="p-d-block">Marka</label>
+            <select
+              formControlName="brandId"
+              [(ngModel)]="selectedBrandId"
+              id="brand"
+              pInputText
+              class="p-input"
+            >
+              <option *ngFor="let brands of brand" [value]="brands.id">
+                {{ brands.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="color" class="p-d-block">Renk</label>
+            <select
+              formControlName="colorId"
+              [(ngModel)]="selectedColorId"
+              id="color"
+              pInputText
+            >
+              <option *ngFor="let colors of color" [value]="colors.id">
+                {{ colors.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="field col-12">
+          <label for="name" class="p-d-block">Name</label>
+          <input
+            pInputText
+            type="text"
+            formControlName="name"
+            id="name"
+            class="p-input"
+          />
+        </div>
+        <div class="field col-12 md:col-6">
+          <label for="modelYear" class="p-d-block">Model Yılı</label>
+          <input
+            type="text"
+            formControlName="modelYear"
+            id="modelYear"
+            class="p-input"
+            pInputText
+          />
+        </div>
+        <div class="field col-12 md:col-6">
+          <label for="dailyPrice" class="p-d-block">Fiyat</label>
+          <input
+            type="text"
+            formControlName="dailyPrice"
+            id="dailyPrice"
+            class="p-input"
+            pInputText
+          />
+        </div>
+        <div class="field col-12 md:col-12">
+          <label for="description" class="p-d-block">Açıklama</label>
+          <input
+            type="text"
+            formControlName="description"
+            id="description"
+            class="p-input"
+            pInputText
+          />
+        </div>
+      </div>
+      <button
+        (click)="update()"
+        [routerLink]="['/caravans']"
+        class="p-button p-button-primary p-mt-2"
+        style="margin-left: 10px; border-radius: 10px"
+      >
+        Güncelle
+      </button>
+    </form>
+  </div>
+</div>

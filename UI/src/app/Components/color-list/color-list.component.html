@@ -1,0 +1,43 @@
+<p-table [value]="color" [tableStyle]="{ 'min-width': '60rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="code" style="width: 20%">
+        Id <p-sortIcon field="code"></p-sortIcon>
+      </th>
+      <th pSortableColumn="name" style="width: 20%">
+        Renk <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th pSortableColumn="category" style="width: 20%">
+        Sil <p-sortIcon field="category"></p-sortIcon>
+      </th>
+      <th pSortableColumn="quantity" style="width: 20%">
+        Güncelle <p-sortIcon field="quantity"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-color>
+    <tr>
+      <td>{{ color.id }}</td>
+      <td>{{ color.name }}</td>
+      <td>
+        <p-button
+          type="button"
+          (click)="delete(color)"
+          icon="pi pi-times"
+          severity="danger "
+        >
+        </p-button>
+      </td>
+      <td>
+        <p-button severity="info" [routerLink]="'/color-update/' + color.id"
+          >Güncelle</p-button
+        >
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<br />
+
+<p-button severity="success" [routerLink]="['/color-add']" type="button"
+  >Renk Ekle</p-button
+>

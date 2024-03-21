@@ -1,0 +1,37 @@
+<p-table [value]="brand" [tableStyle]="{ 'min-width': '60rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="code" style="width: 20%">
+        Id <p-sortIcon field="code"></p-sortIcon>
+      </th>
+      <th pSortableColumn="name" style="width: 20%">
+        Marka <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th pSortableColumn="category" style="width: 20%">
+        Sil <p-sortIcon field="category"></p-sortIcon>
+      </th>
+      <th pSortableColumn="quantity" style="width: 20%">
+        Güncelle <p-sortIcon field="quantity"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-brand>
+    <tr>
+      <td>{{ brand.id }}</td>
+      <td>{{ brand.name }}</td>
+      <td>
+        <p-button icon="pi pi-times" severity="danger " (click)="delete(brand)">
+        </p-button>
+      </td>
+      <td>
+        <p-button severity="info" [routerLink]="'/brand-update/' + brand.id"
+          >Güncelle</p-button
+        >
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<br />
+<p-button severity="success" [routerLink]="['/brand-add']" type="button">
+  Marka Ekle
+</p-button>

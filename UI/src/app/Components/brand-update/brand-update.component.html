@@ -1,0 +1,17 @@
+<form [formGroup]="brandUpdateForm">
+  <div class="mb-3">
+    <div class="form-group">
+      <input id="id" class="form-control" formControlName="id" hidden />
+    </div>
+  </div>
+  <div class="p-formgrid grid">
+    <label for="name">Name</label>
+    <div class="form-gorup">
+      <input formControlName="name" id="name" class="form-control" />
+    </div>
+  </div>
+</form>
+
+<button type="submit" [routerLink]="['/markalar']" (click)="update()">
+  Güncelle
+</button>

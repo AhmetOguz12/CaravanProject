@@ -1,0 +1,89 @@
+<div class="layout-topbar">
+  <a class="layout-topbar-logo" routerLink="">
+    <img
+      src="assets/layout/images/{{
+        layoutService.config().colorScheme === 'light'
+          ? 'logo-dark'
+          : 'logo-white'
+      }}.svg"
+      alt="logo"
+    />
+    <span>Karavan Kiralama Sitesi</span>
+  </a>
+
+  <button
+    #menubutton
+    class="p-link layout-menu-button layout-topbar-button"
+    (click)="layoutService.onMenuToggle()"
+  >
+    <i class="pi pi-bars"></i>
+  </button>
+
+  <button
+    #topbarmenubutton
+    class="p-link layout-topbar-menu-button layout-topbar-button"
+    (click)="layoutService.showProfileSidebar()"
+  >
+    <i class="pi pi-ellipsis-v"></i>
+  </button>
+
+  <div
+    #topbarmenu
+    class="layout-topbar-menu"
+    [ngClass]="{
+      'layout-topbar-menu-mobile-active':
+        layoutService.state.profileSidebarVisible
+    }"
+  >
+    <ng-container>
+      <div *ngIf="roles && roles.includes('adminRole'); else userrole">
+        <p-button
+          class="mr-5"
+          [text]="true"
+          routerLink="/kiralamalar"
+          [raised]="true"
+          size="small"
+          >Kiralamalar</p-button
+        >
+
+        <p-button
+          class="mr-5"
+          [text]="true"
+          routerLink="/markalar"
+          [raised]="true"
+          size="small"
+          >Markalar</p-button
+        >
+        <p-button
+          class="mr-5"
+          [text]="true"
+          routerLink="/renkler"
+          [raised]="true"
+          size="small"
+          >Renkler</p-button
+        >
+      </div>
+    </ng-container>
+
+    <ng-template #userrole></ng-template>
+
+    <ng-container *ngIf="!IsLoggedIn; else logoutTemplate">
+      <p-button
+        class="mr-3"
+        routerLink="/Giriş-Yap"
+        [raised]="true"
+        size="small"
+        >Giriş Yap</p-button
+      >
+      <p-button routerLink="/Kayıt-Ol" [raised]="true" size="small"
+        >Kayıt Ol</p-button
+      >
+    </ng-container>
+
+    <ng-template #logoutTemplate>
+      <p-button (click)="logout()" routerLink="/caravans" size="small"
+        >Çıkış Yap</p-button
+      >
+    </ng-template>
+  </div>
+</div>

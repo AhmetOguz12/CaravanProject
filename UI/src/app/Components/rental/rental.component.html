@@ -1,0 +1,27 @@
+<p-table [value]="rentals" [tableStyle]="{ 'min-width': '60rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="code" style="width: 20%">
+        Id <p-sortIcon field="code"></p-sortIcon>
+      </th>
+      <th pSortableColumn="name" style="width: 20%">
+        Karavan Adı <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th pSortableColumn="category" style="width: 20%">
+        Kiralama Tarihi <p-sortIcon field="category"></p-sortIcon>
+      </th>
+      <th pSortableColumn="quantity" style="width: 20%">
+        Teslim Tarihi <p-sortIcon field="quantity"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rentals>
+    <tr>
+      <td>{{ rentals.id }}</td>
+      <td>{{ rentals.caravanName }}</td>
+      <td>{{ rentals.rentDate }}</td>
+      <td>{{ rentals.returnDate }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+<br />

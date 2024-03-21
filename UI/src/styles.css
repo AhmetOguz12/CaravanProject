@@ -1,0 +1,6 @@
+@import "/src/assets/layout/styles/layout/layout.css";
+@import "primeicons/primeicons.css";
+
+@import "/node_modules/primeflex/primeflex.css";
+@import "primeng/resources/primeng.css";
+@import "/node_modules/primeng/resources/primeng.min.css";

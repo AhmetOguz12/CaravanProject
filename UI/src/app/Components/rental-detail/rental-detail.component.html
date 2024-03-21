@@ -1,0 +1,35 @@
+<div class="card p-fluid">
+  <form [formGroup]="rentalAddFrom">
+    <label>Caravan Name</label>
+    <div class="p-inputgroup">
+      <input
+        type="text"
+        formControlName="caravanName"
+        [(ngModel)]="selectedCaravanName"
+        pInputText
+        placeholder="Username"
+      />
+    </div>
+
+    <br />
+    <label>Kiralama Tarihi</label>
+    <p-calendar [showIcon]="true" formControlName="rentDate"></p-calendar>
+
+    <br />
+    <label>Dönüş Tarihi</label>
+
+    <p-calendar [showIcon]="true" formControlName="returnDate"></p-calendar>
+    <br />
+    <button
+      type="submit"
+      [routerLink]="'/caravans'"
+      (click)="add()"
+      pButton
+      pRipple
+      label="Kirala"
+      class="p-button-success"
+    ></button>
+  </form>
+</div>
+
+<!-- <input type="text" [(ngModel)]="rental.id" name="caravanid" /> -->

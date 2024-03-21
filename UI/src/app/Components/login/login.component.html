@@ -1,0 +1,45 @@
+<div class="form-container">
+  <form #ngForm="ngForm" (ngSubmit)="login()" class="login-form">
+    <h2>Login</h2>
+    <div class="input-container">
+      <label>Email veya Kullanıcı Adı</label>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-user"></i>
+        </span>
+        <input
+          pInputText
+          placeholder="Username"
+          type="text"
+          [(ngModel)]="EmailorUserName"
+          name="EmailorUserName"
+        />
+      </div>
+    </div>
+
+    <div class="input-container">
+      <label>Password</label>
+      <div class="p-inputgroup">
+        <span class="p-inputgroup-addon">
+          <i class="pi pi-lock"></i>
+        </span>
+        <input
+          pInputText
+          placeholder="Password"
+          type="password"
+          [(ngModel)]="loginModule.password"
+          name="password"
+        />
+      </div>
+    </div>
+    <div *ngIf="showAlert" class="alert">Kullanıcı adı veya parola yanlış!</div>
+    <div class="button-container">
+      <p-button
+        (click)="login()"
+        label="Login"
+        class="login-button"
+        severity="success"
+      ></p-button>
+    </div>
+  </form>
+</div>

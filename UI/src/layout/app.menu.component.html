@@ -1,0 +1,34 @@
+<ul class="list-group" style="margin-top: 8px">
+  <li
+    (click)="clearCurrenBrand()"
+    [class]="getAllBrandClaa()"
+    routerLink="/caravans"
+  >
+    Markalar
+  </li>
+  <li
+    (click)="setCurrentBrand(brand)"
+    *ngFor="let brand of brand"
+    routerLink="/caravans/brand/{{ brand.id }}"
+    [class]="getCurrentBrandClass(brand)"
+  >
+    {{ brand.name }}
+  </li>
+  <br />
+  <li
+    routerLink="/caravans"
+    [class]="getAllColorClass()"
+    (click)="clearCurrentColor()"
+  >
+    Renkler
+  </li>
+
+  <li
+    (click)="setCurrentColor(color)"
+    *ngFor="let color of colors"
+    routerLink="/caravans/color/{{ color.id }}"
+    [class]="getCurrentColorClass(color)"
+  >
+    {{ color.name }}
+  </li>
+</ul>

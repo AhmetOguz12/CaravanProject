@@ -1,0 +1,9 @@
+<form [formGroup]="colorAddForm">
+  <div class="card p-fluid">Renk EKle</div>
+  <div class="p-formgrid grid">
+    <label>Renk Adı</label>
+    <input type="text" id="name" formControlName="name" />
+  </div>
+
+  <button type="submit" (click)="add()">Ekle</button>
+</form>

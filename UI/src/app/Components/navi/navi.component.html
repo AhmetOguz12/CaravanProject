@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="navi">
+    <div class="logo">Caravan</div>
+    <div class="list">
+      <ng-container>
+        <li *ngIf="roles && roles.includes('adminRole'); else userrole">
+          <ul>
+            <a routerLink="/kiralamalar">Kiralamalar</a>
+          </ul>
+          <ul class="list-item">
+            <a routerLink="/markalar">Markalar</a>
+          </ul>
+          <ul class="list-item">
+            <a routerLink="/renkler">Renkler</a>
+          </ul>
+        </li>
+      </ng-container>
+      <ng-template #userrole></ng-template>
+      <ng-container *ngIf="!IsLoggedIn; else logout">
+        <div class="list-item">
+          <li>
+            <ul class="list-item">
+              <a routerLink="/Giriş-Yap">Giriş Yap</a>
+            </ul>
+            <ul class="list-item">
+              <a routerLink="/Kayıt-Ol">Kayıt Ol</a>
+            </ul>
+          </li>
+        </div>
+      </ng-container>
+      <ng-template #logout> çıkış</ng-template>
+    </div>
+  </div>
+</div>

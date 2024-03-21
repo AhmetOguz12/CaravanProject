@@ -1,0 +1,12 @@
+<form [formGroup]="colorUpdateForm">
+  <div class="p-formgrid grid">
+    <label>İd</label>
+    <input type="number" formControlName="id" id="id" />
+  </div>
+  <div class="p-formgrid grid">
+    <label>Name</label>
+    <input type="text" id="name" formControlName="name" />
+  </div>
+</form>
+
+<button [routerLink]="['/renkler']" (click)="update()">Güncelle</button>

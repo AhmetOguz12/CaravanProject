@@ -1,0 +1,59 @@
+<p-table [value]="caravandetail" [tableStyle]="{ 'min-width': '60rem' }">
+  <ng-template pTemplate="caption">
+    <div class="flex align-items-center justify-content-between">
+      Karavanlar
+      <p-button icon="pi pi-refresh"></p-button>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Resim</th>
+      <th>Brand Name</th>
+      <th>Color Name</th>
+      <th>Name</th>
+      <th>Model Yılı</th>
+      <th>Fiyat</th>
+      <th>Açıklama</th>
+      <ng-container *ngIf="roles && roles.includes('adminRole')">
+        <th>Sil</th>
+        <th>Güncelle</th>
+      </ng-container>
+      <th>Kirala</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-c>
+    <tr>
+      <td>
+        <img [src]="c.imagePath" width="100" class="shadow-4" />
+      </td>
+      <td>{{ c.brandName }}</td>
+      <td>{{ c.colorName }}</td>
+      <td>{{ c.name }}</td>
+      <td>{{ c.modelYear }}</td>
+      <td>{{ c.dailyPrice }}</td>
+      <td>{{ c.description }}</td>
+      <ng-container *ngIf="roles && roles.includes('adminRole')">
+        <td>
+          <p-button
+            (click)="caravandelete(c)"
+            icon="pi pi-times"
+            severity="danger "
+          ></p-button>
+        </td>
+        <td>
+          <p-button severity="info" [routerLink]="'/caravan-update/' + c.id"
+            >Güncelle</p-button
+          >
+        </td>
+      </ng-container>
+      <td>
+        <p-button
+          [rounded]="true"
+          severity="success"
+          [routerLink]="'/rental-detail/' + c.id"
+          >Kirala</p-button
+        >
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

@@ -1,0 +1,8 @@
+<form [formGroup]="brandAddForm">
+  <div class="card p-fluid">Marka Ekle</div>
+  <div class="p-formgrid grid">
+    <label>Marka Adı</label>
+    <input type="text" id="name" formControlName="name" />
+  </div>
+  <button type="submit" (click)="add()">Ekle</button>
+</form>

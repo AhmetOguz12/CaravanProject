@@ -1,0 +1,25 @@
+<table class="table" style="margin-top: 20px">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>BrandId</th>
+      <th>ColorId</th>
+      <th>Name</th>
+      <th>Model Yılı</th>
+      <th>Fiyat</th>
+      <th>Açıklama</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let c of caravans">
+      <td>{{ c.id }}</td>
+      <td>{{ c.brandId }}</td>
+      <td>{{ c.colorId }}</td>
+      <td>{{ c.name }}</td>
+      <td>{{ c.modelYear }}</td>
+      <td>{{ c.dailyPrice }}</td>
+      <td>{{ c.description }}</td>
+    </tr>
+  </tbody>
+</table>
