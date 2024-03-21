@@ -15,13 +15,13 @@
       </th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-rentals>
+  <ng-template pTemplate="body" let-rental>
     <tr>
-      <td>{{ rentals.id }}</td>
-      <td>{{ rentals.caravanName }}</td>
-      <td>{{ rentals.rentDate }}</td>
-      <td>{{ rentals.returnDate }}</td>
+      <td>{{ rental.id }}</td>
+      <td>{{ rental.caravanName }}</td>
+      <td>{{ rental.rentDate }}</td>
+      <td>{{ rental.returnDate }}</td>
     </tr>
   </ng-template>
+  <br />
 </p-table>
-<br />

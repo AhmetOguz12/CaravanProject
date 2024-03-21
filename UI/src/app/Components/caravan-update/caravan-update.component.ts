@@ -49,6 +49,7 @@ export class CaravanUpdateComponent implements OnInit {
       modelYear: [''],
       dailyPrice: [''],
       description: [''],
+      imagePath: [''],
     });
   }
 

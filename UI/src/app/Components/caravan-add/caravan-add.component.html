@@ -1,43 +1,102 @@
-<form [formGroup]="caravanAddForm">
-  <div class="card p-fluid">
-    <h4>Caravan Ekle</h4>
-    <div class="p-formgrid grid">
-      <label>Marka</label>
-      <select formControlName="brandId" [(ngModel)]="selectedBrandId">
-        <option *ngFor="let brand of brand" [value]="brand.id">
-          {{ brand.name }}
-        </option>
-      </select>
-    </div>
-    <br />
-    <div class="p-formgrid grid">
-      <label>Renk</label>
-      <select formControlName="colorId" [(ngModel)]="selectedColorId">
-        <option *ngFor="let color of color" [value]="color.id">
-          {{ color.name }}
-        </option>
-      </select>
-    </div>
-    <br />
-    <div class="p-fromgrid grid">
-      <label>Karavan Adı</label>
-      <input type="text" id="name" formControlName="name" />
-    </div>
-    <br />
-    <div class="p-formgrid grid">
-      <label>Model Yılı</label>
-      <input type="number" id="modelYear" formControlName="modelYear" />
-    </div>
-    <br />
-    <div class="p-formgrid grid">
-      <label>Fiyat</label>
-      <input type="number" id="dailyPrice" formControlName="dailyPrice" />
-    </div>
-    <br />
-    <div class="p-formgrid grid">
-      <label>Açıklama</label>
-      <input type="text" id="description" formControlName="description" />
-    </div>
-    <button (click)="add()" type="submit">Ekle</button>
+<div class="col-12">
+  <div class="card">
+    <form [formGroup]="caravanAddForm">
+      <h5>Advanced</h5>
+      <div class="p-fluid p-formgrid grid">
+        <div class="field col-12 md:col-12">
+          <label>Karavan Adı</label>
+          <input
+            pInputText
+            class="p-input"
+            type="text"
+            id="name"
+            formControlName="name"
+          />
+        </div>
+        <div
+          class="field col-12 md:col-6"
+          style="display: flex; justify-content: space-between"
+        >
+          <div class="col-12">
+            <label>Marka</label>
+            <select
+              pInputText
+              class="p-input"
+              formControlName="brandId"
+              [(ngModel)]="selectedBrandId"
+            >
+              <option *ngFor="let brand of brand" [value]="brand.id">
+                {{ brand.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label>Renk</label>
+            <select
+              pInputText
+              class="p-input"
+              formControlName="colorId"
+              [(ngModel)]="selectedColorId"
+            >
+              <option *ngFor="let color of color" [value]="color.id">
+                {{ color.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="field col-12"></div>
+        <div class="field col-12 md:col-6">
+          <label>Model Yılı</label>
+          <input
+            type="number"
+            id="modelYear"
+            pInputText
+            class="p-input"
+            formControlName="modelYear"
+          />
+        </div>
+        <div class="field col-12 md:col-6">
+          <label>Fiyat</label>
+          <input
+            type="number"
+            id="dailyPrice"
+            pInputText
+            class="p-input"
+            formControlName="dailyPrice"
+          />
+        </div>
+        <div class="field col-12 md:col-12">
+          <label>Resim Yolu(web)</label>
+          <input
+            type="string"
+            id="imagePath"
+            pInputText
+            class="p-input"
+            formControlName="imagePath"
+          />
+        </div>
+
+        <div class="field col-12 md:col-12">
+          <label>Açıklama</label>
+          <input
+            type="text"
+            id="description"
+            formControlName="description"
+            class="p-input"
+            pInputText
+            class="p-input"
+          />
+        </div>
+      </div>
+      <button
+        (click)="add()"
+        type="submit"
+        [routerLink]="['/caravans']"
+        class="p-button p-button-primary p-mt-2"
+        style="border-radius: 10px"
+      >
+        Ekle
+      </button>
+    </form>
   </div>
-</form>
+</div>

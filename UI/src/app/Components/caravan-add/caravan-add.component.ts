@@ -59,6 +59,7 @@ export class CaravanAddComponent implements OnInit {
       modelYear: [''],
       dailyPrice: [''],
       description: [''],
+      imagePath: [''],
     });
   }
   /*add() {

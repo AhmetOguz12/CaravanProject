@@ -8,4 +8,5 @@ export interface Caravan {
   modelYear: Date;
   dailyPrice: Number;
   description: string;
+  imagePath: string;
 }

@@ -1,12 +1,29 @@
-<form [formGroup]="colorUpdateForm">
-  <div class="p-formgrid grid">
-    <label>İd</label>
-    <input type="number" formControlName="id" id="id" />
-  </div>
-  <div class="p-formgrid grid">
-    <label>Name</label>
-    <input type="text" id="name" formControlName="name" />
-  </div>
-</form>
+<div class="col-12">
+  <div class="card">
+    <form [formGroup]="colorUpdateForm">
+      <h5>Renk Güncelle</h5>
+      <div class="p-fluid p-formgrid grid">
+        <div class="field col-12">
+          <label>Renk Adı</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            pInputText
+            class="p-input"
+          />
+        </div>
+      </div>
 
-<button [routerLink]="['/renkler']" (click)="update()">Güncelle</button>
+      <button
+        (click)="update()"
+        type="submit"
+        [routerLink]="['/renkler']"
+        class="p-button p-button-primary p-mt-2"
+        style="border-radius: 10px"
+      >
+        Güncelle
+      </button>
+    </form>
+  </div>
+</div>

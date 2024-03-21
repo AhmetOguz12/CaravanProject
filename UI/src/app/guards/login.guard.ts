@@ -22,7 +22,7 @@ export const loginGuard: CanActivateFn = (route, state) => {
       //token expired
       alert('inaktiflikten dolayı çıkış yapılmıştır');
       localStorage.clear();
-      return router.createUrlTree(['login'], {
+      return router.createUrlTree(['/Giriş-Yap'], {
         queryParams: { returnUrl: state.url },
       });
     } else {
@@ -30,7 +30,7 @@ export const loginGuard: CanActivateFn = (route, state) => {
     }
   } else {
     alert('Lütfen Giriş Yapınız');
-    return router.createUrlTree(['login'], {
+    return router.createUrlTree(['/Giriş-Yap'], {
       queryParams: { returnUrl: state.url },
     });
   }

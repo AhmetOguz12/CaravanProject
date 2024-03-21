@@ -1,3 +1,5 @@
+import { ResponseModel } from './responseModel';
+
 export interface RentalDetailDto {
   id: number;
   caravanId: number;

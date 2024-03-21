@@ -1,9 +1,28 @@
-<form [formGroup]="colorAddForm">
-  <div class="card p-fluid">Renk EKle</div>
-  <div class="p-formgrid grid">
-    <label>Renk Adı</label>
-    <input type="text" id="name" formControlName="name" />
+<div class="col-12">
+  <div class="card">
+    <form [formGroup]="colorAddForm">
+      <h5>Renk Ekle</h5>
+      <div class="p-fluid p-formgrid grid">
+        <div class="field col-12">
+          <label>Renk Adı</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            pInputText
+            class="p-input"
+          />
+        </div>
+      </div>
+      <button
+        (click)="add()"
+        type="submit"
+        [routerLink]="['/renkler']"
+        class="p-button p-button-primary p-mt-2"
+        style="border-radius: 10px"
+      >
+        Ekle
+      </button>
+    </form>
   </div>
-
-  <button type="submit" (click)="add()">Ekle</button>
-</form>
+</div>

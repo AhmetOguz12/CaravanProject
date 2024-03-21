@@ -8,8 +8,8 @@
   <ng-template pTemplate="header">
     <tr>
       <th>Resim</th>
-      <th>Brand Name</th>
-      <th>Color Name</th>
+      <th>Marka</th>
+      <th>Renk</th>
       <th>Name</th>
       <th>Model Yılı</th>
       <th>Fiyat</th>
@@ -57,3 +57,9 @@
     </tr>
   </ng-template>
 </p-table>
+<br />
+<ng-container *ngIf="roles && roles.includes('adminRole')">
+  <p-button severity="info" [routerLink]="'/caravan-add'"
+    >Karavan Ekle</p-button
+  >
+</ng-container>
