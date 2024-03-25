@@ -2,33 +2,41 @@
   <li
     (click)="clearCurrenBrand()"
     [class]="getAllBrandClaa()"
-    routerLink="/caravans"
+    [routerLink]="['/caravans']"
   >
     Markalar
   </li>
   <li
     (click)="setCurrentBrand(brand)"
     *ngFor="let brand of brand"
-    routerLink="/caravans/brand/{{ brand.id }}"
     [class]="getCurrentBrandClass(brand)"
+    [routerLink]="['/caravans/brand', brand.id]"
   >
     {{ brand.name }}
   </li>
   <br />
   <li
-    routerLink="/caravans"
     [class]="getAllColorClass()"
     (click)="clearCurrentColor()"
+    [routerLink]="['/caravans']"
   >
     Renkler
   </li>
-
   <li
     (click)="setCurrentColor(color)"
     *ngFor="let color of colors"
-    routerLink="/caravans/color/{{ color.id }}"
     [class]="getCurrentColorClass(color)"
+    [routerLink]="['/caravans/color', color.id]"
   >
     {{ color.name }}
+  </li>
+  <li
+    (click)="search()"
+    [class]="getAllColorClass()"
+    routerLink="/caravans/brand/{{ currentBrand?.id }}/color/{{
+      currentColor?.id
+    }}"
+  >
+    Filtrele
   </li>
 </ul>

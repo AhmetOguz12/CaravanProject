@@ -69,10 +69,17 @@ export class CaravanService {
   ): Observable<ListResponseModel<CaravanDetailDto>> {
     let newPath =
       this.apiUrl +
-      'caravans/getbycolorıdwithbrandıd?colorId=' +
+      'caravans/getbycoloridwithbrandid?colorId=' +
       colorid +
       '&brandId=' +
       brandid;
     return this.httpClient.get<ListResponseModel<CaravanDetailDto>>(newPath);
   }
+  // getCaravansByBrandAndColor(
+  //   brandId: number,
+  //   colorId: number
+  // ): Observable<ListResponseModel<CaravanDetailDto>> {
+  //   let newPath = `${this.apiUrl}Caravans/getbycoloridwithbrandid?colorId=${colorId}&brandId=${brandId}`;
+  //   return this.httpClient.get<ListResponseModel<CaravanDetailDto>>(newPath);
+  // }
 }

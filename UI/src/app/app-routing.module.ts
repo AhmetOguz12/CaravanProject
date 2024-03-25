@@ -55,6 +55,7 @@ const routes: Routes = [
         path: 'brand-add',
         component: BrandAddComponent,
       },
+
       { path: 'brand-update/:id', component: BrandUpdateComponent },
       { path: 'color-add', component: ColorAddComponent },
       { path: 'color-update/:id', component: ColorUpdateComponent },

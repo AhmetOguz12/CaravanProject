@@ -25,6 +25,23 @@ export class CaravanDetailDtoComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
+      const brandId = params['brandid'];
+      const colorId = params['colorid'];
+
+      if (brandId && colorId) {
+        this.getallbrandidwithcolorid(brandId, colorId);
+      } else if (brandId) {
+        this.getCaravansByBrand(brandId);
+      } else if (colorId) {
+        this.getCaravansByColor(colorId);
+      } else {
+        this.getAllCaravans();
+      }
+    });
+  }
+  /*
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
       if (params['brandid']) {
         this.getallbrandıd(params['brandid']);
       }
@@ -47,32 +64,58 @@ export class CaravanDetailDtoComponent implements OnInit {
 
     this.getall();
   }
+*/
 
-  getall() {
+  getAllCaravans() {
     this.caravanService.getAll().subscribe((response) => {
       this.caravandetail = response.data;
     });
   }
 
-  getallbrandıd(brandid: number) {
-    this.caravanService.getCaravanByBrand(brandid).subscribe((response) => {
+  getCaravansByBrand(brandId: number) {
+    this.caravanService.getCaravanByBrand(brandId).subscribe((response) => {
       this.caravandetail = response.data;
     });
   }
 
-  getAllcolorod(colorid: number) {
-    this.caravanService.getCaravanByColor(colorid).subscribe((response) => {
+  getCaravansByColor(colorId: number) {
+    this.caravanService.getCaravanByColor(colorId).subscribe((response) => {
       this.caravandetail = response.data;
     });
   }
 
-  getallbrandidwithcolorid(branid: number, colorid: number) {
+  // getCaravansByBrandAndColor(brandId: number, colorId: number) {
+  //   this.caravanService
+  //     .getCaravansByBrandAndColor(brandId, colorId)
+  //     .subscribe((response) => {
+  //       this.caravandetail = response.data;
+  //     });
+  // }
+  getallbrandidwithcolorid(brandId: number, colorId: number) {
     this.caravanService
-      .getCaravanByColorWithBrandId(branid, colorid)
+      .getCaravanByColorWithBrandId(colorId, brandId)
       .subscribe((response) => {
         this.caravandetail = response.data;
       });
   }
+  // getall() {
+  //   this.caravanService.getAll().subscribe((response) => {
+  //     this.caravandetail = response.data;
+  //   });
+  // }
+
+  // getallbrandıd(brandid: number) {
+  //   this.caravanService.getCaravanByBrand(brandid).subscribe((response) => {
+  //     this.caravandetail = response.data;
+  //   });
+  // }
+
+  // getAllcolorod(colorid: number) {
+  //   this.caravanService.getCaravanByColor(colorid).subscribe((response) => {
+  //     this.caravandetail = response.data;
+  //   });
+  // }
+
   caravandelete(caravans: CaravanDetailDto) {
     this.caravandetail = this.caravandetail.filter(
       (response) => response !== caravans

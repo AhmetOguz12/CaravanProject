@@ -5,8 +5,9 @@ import { Color } from 'src/app/Module/color';
 import { ColorService } from 'src/app/Services/color.service';
 import { FilrteService } from 'src/app/Services/filrte.service';
 import { Brand } from 'src/app/Module/brand';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BrandService } from 'src/app/Services/brand.service';
+import { CaravanService } from 'src/app/Services/caravan.service';
 
 @Component({
   selector: 'app-menu',
@@ -15,9 +16,9 @@ import { BrandService } from 'src/app/Services/brand.service';
 export class AppMenuComponent implements OnInit {
   model: any[] = [];
   colors: Color[] = [];
-  currentColor: Color;
+  currentColor?: Color;
   brand: Brand[] = [];
-  currentBrand: Brand; //şuanki marka demek onu burda tutucaz bunuda html'De çekicez
+  currentBrand?: Brand; //şuanki marka demek onu burda tutucaz bunuda html'De çekicez
 
   constructor(
     public layoutService: LayoutService,
@@ -25,13 +26,27 @@ export class AppMenuComponent implements OnInit {
     private filterService: FilrteService,
     private cdr: ChangeDetectorRef,
     private brandService: BrandService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private caravanService: CaravanService
   ) {}
   ngOnInit(): void {
     this.cdr.detectChanges();
     this.getAll();
     this.getAlll();
   }
+
+  search() {
+    if (this.currentBrand && this.currentColor) {
+    } else if (this.currentBrand) {
+      this.router.navigate(['/caravans/brand/' + this.currentBrand.id]);
+    } else if (this.currentColor) {
+      this.router.navigate(['/caravans/color/' + this.currentColor.id]);
+    } else {
+      this.router.navigate(['/caravans']);
+    }
+  }
+
   getAll() {
     this.colorService
       .getAll()
